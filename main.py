@@ -1,22 +1,22 @@
-def input_validation(prompt, var1, var2):
+def get_operation(prompt, var1, var2):
     while True:
-        validate_input = input(prompt + "Which operation do you want to use? \n"
+        get_operator = input(prompt + "Which operation do you want to use? \n"
                 "1. AND operation \n"
                 "2. OR operation \n"
                 "3. NOT operation \n"
                 "4. NAND operation \n"
                 "5. NOR operation \n")
 
-        if validate_input == "1":
+        if get_operator == "1":
             return ANDgate(var1, var2)
-        elif validate_input == "2":
+        elif get_operator == "2":
             return ORgate(var1,var2)
-        elif validate_input == "3":
+        elif get_operator == "3":
             print("Note: NOT gate only uses the first input.")
             return NOTgate(var1)
-        elif validate_input == "4":
+        elif get_operator == "4":
             return NANDgate(var1,var2)
-        elif validate_input == "5":
+        elif get_operator == "5":
             return NORgate(var1,var2)
         else:
             print("Invalid input. Please try again.")
@@ -55,9 +55,10 @@ def NORgate(a, b):
 
 
 
+
 var1 = parse_input("First input: ")
-var2 = parse_input("Second input: ")    
+var2 = parse_input("Second input: ") 
 
-
-validate = input_validation("--- LOGIC GATE MENU ---\n", var1, var2)
-print("The final output is: ", validate)
+operator_name = get_operation("--- LOGIC GATE MENU ---\n", var1, var2)
+print("The final output is: ", operator_name)
+   
